@@ -179,7 +179,7 @@ class RegistrationForm extends Component {
                     className="name-input-field"
                     value={name}
                     onChange={this.onChangename}
-                    placeholder="name"
+                    placeholder="Name"
                 />
             </>
         );

@@ -34,8 +34,8 @@ const UserList = () => {
     },
     {
       title: 'Zip Code',
-      dataIndex: 'zipcode',
-      key: 'zipcode',
+      dataIndex: 'zipCode',
+      key: 'zipCode',
     },
   ];
 
