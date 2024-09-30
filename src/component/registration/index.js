@@ -207,7 +207,7 @@ class RegistrationForm extends Component {
                     </button>
 
                     {showSubmitError && <p className="error-message">*{errorMsg}</p>}
-                    <Link to='/login' className="link">
+                    <Link to='/' className="link">
                         <button className="account-register">
                             Click here to View Data
                         </button>
