@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+Here's the updated `README.md` file for the frontend of your User Address Application, reflecting the use of the `fetch` method instead of Axios.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Frontend README.md
+
+```markdown
+# User Address Application - Frontend
+
+This is the frontend part of the User Address Application, built using React and Ant Design. It allows users to register and view their addresses in a structured table format.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Available Scripts](#available-scripts)
+- [Folder Structure](#folder-structure)
+- [API Integration](#api-integration)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- User registration form for submitting addresses
+- Display of registered users and their addresses in a responsive table format using Ant Design
+- Clean and user-friendly interface
+
+## Technologies Used
+
+- React
+- Ant Design
+- Fetch API (for API calls)
+- React Router (for navigation)
+
+## Setup Instructions
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd user-address-app/frontend
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the React application**:
+   ```bash
+   npm start
+   ```
+   The application will run on `http://localhost:3000`.
+
+4. **Ensure the backend is running**: Make sure the backend server is running on `http://localhost:3001` for API calls to work.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+- `npm start`: Starts the development server.
+- `npm run build`: Builds the app for production to the `build` folder.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Folder Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+frontend/
+├── public/
+├── src/
+│   ├── components/       # Contains reusable components
+│   ├── services/         # Contains API service files
+│   ├── App.js            # Main application component
+│   ├── index.js          # Entry point of the application
+│   └── ...
+└── package.json          # Project metadata and dependencies
+```
 
-### `npm test`
+## API Integration
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The frontend communicates with the backend using the following API endpoints:
 
-### `npm run build`
+- **POST /users**: To register a new user.
+- **GET /users**: To retrieve a list of all users and their addresses.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Example of API Request
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Here’s how the frontend sends a request to register a new user using the `fetch` method:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+const registerUser = async (userData) => {
+  try {
+    const response = await fetch('http://localhost:3001/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
 
-### `npm run eject`
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error registering user:', error);
+    throw error;
+  }
+};
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributions are welcome! Please feel free to open issues or submit pull requests.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+This project is licensed under the MIT License.
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Customization Tips
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Repository URL**: Replace `<repository-url>` with the actual URL of your GitHub repository.
+2. **Folder Structure**: Adjust the folder structure section if your project's structure is different.
+3. **Additional Features**: If there are any other features or components, feel free to add them to the README.
 
-### Code Splitting
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You can create a `README.md` file in the `frontend` directory of your project and copy the above content into it. Modify any sections as necessary to fit your specific project details.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Let me know if you need any further adjustments or assistance!
